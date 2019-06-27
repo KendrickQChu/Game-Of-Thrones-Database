@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <button onclick="window.location.href=
+    '/'">Go Back
+  </button>
+  <body>
+  
+  <table id="alliances">
+    <caption> 
+      <strong>Alliances</strong> 
+    </caption>
+    <thead>
+      <tr>
+        <th>Leader</th>
+        <th>Enemies</th>
+        <th>Friends</th>
+        <th>Neutrals</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each alliance}}
+      <tr>
+        <th>{{Leader}}</th>
+        <th>{{Enemies}}</th>
+        <th>{{Friends}}</th>
+        <th>{{Neutrals}}</th>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <br>
+
+  <h3>Add New Alliance:</h3>
+  <form id="add_alliance" action="/alliance" method="POST">
+    Leader: <input type="text" name="Leader"><br>
+    Enemies: <input type="text" name="Enemies"><br>
+    Friends: <input type="text" name="Friends"><br>
+    Neutrals: <input type="text" name="Neutrals"><br>
+    <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>

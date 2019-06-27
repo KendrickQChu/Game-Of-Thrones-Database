@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <button onclick="window.location.href=
+    '/'">Go Back
+  </button>
+  <body>
+
+  <table id="chars_family">
+    <caption> 
+      <strong>Character Family Relationships</strong> 
+    </caption>
+    <thead>
+      <tr>
+        <th>Character</th>
+        <th>Family</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each relationship}}
+      <tr>
+        <th>{{Character_Name}}</th>
+        <th>{{Family_Name}}</th>
+        <td><button onclick="deleteRelationship({{Character_ID}}, {{Family_ID}})">Delete</button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <br>
+
+  <h3>Add New Relationship:</h3>
+  <form id="add_relationship" action="/character_family" method="POST">
+    Character: <select name="Character_ID">
+      {{#each character}}
+      <option value="{{id}}">{{Name}}</option>
+      {{/each}}
+    </select><br>
+    Family: <select name="Family_ID">
+      {{#each family}}
+      <option value="{{id}}">{{Name}}</option>
+      {{/each}}
+    </select><br>
+    <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>

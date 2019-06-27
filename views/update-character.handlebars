@@ -1,0 +1,24 @@
+<html>
+<h1>Update {{character.Name}}:</h1>
+<form id="update-character" action="/character" method="post">
+    Name: <input type="text" name="Name" value="{{character.Name}}"><br>
+    Home: <select name="Home" id="region-selector">
+        {{#each region}}
+        <option value="{{id}}">{{Name}}</option>
+        {{/each}}
+    </select><br>
+    Alliance: <select name="Alliance" id="alliance-selector"> 
+        {{#each alliance}}
+        <option value="{{id}}">{{Leader}}</option>
+        {{/each}}
+        <option value="null">NULL</option>
+    </select><br>
+    Seasons: <input type="number" name="Seasons" value="{{character.Seasons}}"><br>
+    Trait: <input type="text" name="Trait" value="{{character.Trait}}"><br>
+</form>
+<button onclick="updateCharacter({{character.id}})">Update</button>
+<script defer>
+    selectRegion({{character.Home}});
+    selectAlliance({{character.Alliance}});
+</script>
+</html>

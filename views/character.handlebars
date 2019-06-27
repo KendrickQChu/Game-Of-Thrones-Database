@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <button onclick="window.location.href=
+    '/'">Go Back
+  </button>
+  <body>
+  <form id="search_characters" action="" method="">
+    <label>Search for characters with name starting with:</label>
+    <input id="name_search_string" type="text" name="name_search_string" value="">
+    <input type="button" value="Search" onclick="searchCharactersByName()">
+  </form>
+
+  <table id="chars">
+    <caption> 
+      <strong>Major Characters</strong> 
+    </caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Home</th>
+        <th>Alliance</th>
+        <th>Seasons</th>
+        <th>Trait</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each character}}
+      <tr>
+        <th>{{Name}}</th>
+        <th>{{Home}}</th>
+        <th>{{Alliance}}</th>
+        <th>{{Seasons}}</th>
+        <th>{{Trait}}</th>
+        <td><button onclick="deleteCharacter({{id}})">Delete</button></td>
+        <td><a href="/character/{{id}}">Update</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <br>
+
+  <h3>Add New Character:</h3>
+  <form id="add_character" action="/character" method="POST">
+    Name: <input type="text" name="Name"><br>
+    Home: <select name="Home">
+      {{#each region}}
+      <option value="{{id}}">{{Name}}</option>
+      {{/each}}
+    </select><br>
+    Alliance: <select name="Alliance">
+      {{#each alliance}}
+      <option value="{{id}}">{{Leader}}</option>
+      {{/each}}
+    </select><br>
+    Seasons: <input type="number" name="Seasons"><br>
+    Trait: <input type="text" name="Trait"><br>
+    <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>

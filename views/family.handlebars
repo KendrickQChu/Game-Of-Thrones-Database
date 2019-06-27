@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <button onclick="window.location.href=
+    '/'">Go Back
+  </button>
+  <body>
+  
+  <table id="families">
+    <caption> 
+      <strong>Families</strong> 
+    </caption>
+    <thead>
+      <tr>
+        <th>Family Name</th>
+        <th>Head Of Family</th>
+        <th>Castle</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each family}}
+      <tr>
+        <th>{{Family_Name}}</th>
+        <th>{{Head_Of_Family}}</th>
+        <th>{{Castle}}</th>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <br>
+
+  <h3>Add New Family:</h3>
+  <form id="add_family" action="/family" method="POST">
+    Family Name: <input type="text" name="Family_Name"><br>
+    Head Of Family: <input type="text" name="Head_Of_Family"><br>
+    Castle: <input type="text" name="Castle"><br>
+    <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>

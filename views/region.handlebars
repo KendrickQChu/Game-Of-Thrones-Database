@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <button onclick="window.location.href=
+    '/'">Go Back
+  </button>
+  <body>
+  
+  <table id="regions">
+    <caption> 
+      <strong>Regions</strong> 
+    </caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each region}}
+      <tr>
+        <th>{{Name}}</th>
+        <th>{{Location}}</th>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <br>
+
+  <h3>Add New Region:</h3>
+  <form id="add_region" action="/region" method="POST">
+    Name: <input type="text" name="Name"><br>
+    Location: <input type="text" name="Location"><br>
+    <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>

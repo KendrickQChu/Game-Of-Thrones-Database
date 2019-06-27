@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <button onclick="window.location.href=
+    '/'">Go Back
+  </button>
+  <body>
+  
+  <table id="families">
+    <caption> 
+      <strong>Rulers</strong> 
+    </caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Succession Type</th>
+        <th>Current Ruler</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each ruler}}
+      <tr>
+        <th>{{Name}}</th>
+        <th>{{Succession_Type}}</th>
+        <th>{{Current_Ruler}}</th>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <br>
+
+  <h3>Add New Ruler:</h3>
+  <form id="add_ruler" action="/ruler" method="POST">
+    Name: <select name="Character_ID">
+      {{#each character}}
+      <option value="{{id}}">{{Name}}</option>
+      {{/each}}
+    </select><br>
+    Succession_Type: <select name="Succession_Type">
+        <option value="0">Inherited</option>
+        <option value="1">Usurped</option>
+    </select><br>
+    Current_Ruler: <select name="Current_Ruler">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </select><br>
+    <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>
